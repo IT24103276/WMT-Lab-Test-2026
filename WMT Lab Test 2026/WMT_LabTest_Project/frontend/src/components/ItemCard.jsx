@@ -11,8 +11,10 @@ function ItemCard({ item, onDelete }) {
             <h3>{item.name}</h3>
             <p><strong>Category:</strong> {item.category}</p>
             <p><strong>Price:</strong> ${item.price}</p>
+            {item.discountPercentage !== undefined && item.discountPercentage !== null && (
+                <p><strong>Discount:</strong> {item.discountPercentage}%</p>
+            )}
             <p>{item.description}</p>
-            <p><strong>Manufacture Date:</strong> {item.manufactureDate ? item.manufactureDate.substring(0, 10) : "N/A"}</p>
 
             <div className="card-actions">
                 <Link className="btn secondary" to={`/edit-item/${item._id}`}>Edit</Link>
